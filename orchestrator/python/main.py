@@ -32,7 +32,7 @@ def serversNeededHeuristic(
     return needed
 
 
-def scaleUp(n, currentServerID):
+def scaleUp(client, n, currentServerID):
     '''
     ScaleUp boots #n servers starting from currentServerID
     The procedure to boot one server is:
@@ -46,7 +46,7 @@ def scaleUp(n, currentServerID):
     pass
 
 
-def scaleDown(n, nextServerID):
+def scaleDown(client, n, nextServerID):
     '''
     ScaleDown destroys #n servers starting from currentServerID
     The procedure to boot destroy a server is:
@@ -90,9 +90,9 @@ if __name__ == '__main__':
         print("Servers needed %s " % serversNeeded)
 
         if serversNeeded > 0:
-            scaleUp(abs(serversNeeded), currentServerID)
+            scaleUp(client, abs(serversNeeded), currentServerID)
         elif serversNeeded < 0:
-            scaleDown(abs(serversNeeded), currentServerID)
+            scaleDown(client, abs(serversNeeded), currentServerID)
         else:
             pass
 
